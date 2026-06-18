@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factorio Blueprint Viewer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+</head>
+<body>
+  <canvas id="bpCanvas"></canvas>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">⚙ Blueprint Viewer</span>
+    </div>
+
+    <div class="sidebar-body">
+      <button class="btn-load" id="btnLoad">청사진 불러오기</button>
+
+      <div id="bpInfo" hidden>
+        <div id="infoContent" class="info-section"></div>
+
+        <details class="detail-section" id="entityDetails" open>
+          <summary>
+            엔티티 목록
+            <span id="entityTotal" class="count-badge"></span>
+          </summary>
+          <div id="entityContent"></div>
+        </details>
+
+        <details class="detail-section" id="jsonDetails">
+          <summary>Raw JSON</summary>
+          <pre id="jsonPre" class="json-pre"></pre>
+        </details>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="btn-action" id="btnFit">⊡ 화면 맞추기</button>
+    </div>
+  </aside>
+
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="사이드바 토글">◀</button>
+
+  <div id="loadModal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">청사진 불러오기</h2>
+        <button class="modal-close" id="btnModalClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="field-label" for="bpInput">Blueprint String 또는 JSON</label>
+        <textarea
+          id="bpInput"
+          class="bp-textarea"
+          placeholder="0eNqtVstu2zAQ/BWBZ7..."
+          spellcheck="false"
+        ></textarea>
+        <div id="modalError" class="error-box"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btnSample">샘플</button>
+        <div class="footer-actions">
+          <button class="btn-secondary" id="btnModalCancel">취소</button>
+          <button class="btn-primary" id="btnConfirm">불러오기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/default-entities.js"></script>
+  <script src="js/blueprint.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
