@@ -6,7 +6,7 @@ const ZOOM_STEP     = 1.15;
 const SAMPLE = '0eNqNUl1rwjAU/Ss3z3GQpLUtvi0wGGOoqNRQmmlLJMXkI8ke/O9LbWVz6tNezrnn3C85Q3Hp0Vg0HvIBsm8PB/LpAFmWkayTyAiWrSTJuswAVBFRFDwFM/E6EJbRb0ycPUGEVpSCkRVT8TJHb9I4s+d+SuYY4eBYLl/mBcsFWLnSk+Nd1YomP6oPyqUCSSs0bX4jLR4IZ6IYzSXy2ZXbxGNIkrMU7vd1IXtEMfzIFXi7Bm2EoWBOb0/OXMNQqGVGlbf0vQLyknKmx0DexI0XDxVdD35fOXiPLi+6TGkScBZK7HPSX8BLqKGgA==';
 
 // ── State ──────────────────────────────────────────────────────────────
-const view = { tileSize: 32, panX: 0, panY: 0 };
+const view = { tileSize: 32, panX: 0, panY: 0, showLabel: true, showWires: true, showOrigin: true };
 let currentParsed = null;
 let jsonRendered   = false;
 let isPanning      = false;
@@ -173,6 +173,21 @@ document.getElementById('jsonDetails').addEventListener('toggle', e => {
 });
 
 // ── Wire up buttons ────────────────────────────────────────────────────
+document.getElementById('optShowLabel').addEventListener('change', e => {
+  view.showLabel = e.target.checked;
+  scheduleRedraw();
+});
+
+document.getElementById('optShowWires').addEventListener('change', e => {
+  view.showWires = e.target.checked;
+  scheduleRedraw();
+});
+
+document.getElementById('optShowOrigin').addEventListener('change', e => {
+  view.showOrigin = e.target.checked;
+  scheduleRedraw();
+});
+
 document.getElementById('btnLoad').addEventListener('click', openModal);
 document.getElementById('btnFit').addEventListener('click', fitView);
 document.getElementById('btnConfirm').addEventListener('click', confirmLoad);

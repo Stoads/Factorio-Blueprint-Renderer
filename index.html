@@ -18,6 +18,24 @@
     <div class="sidebar-body">
       <button class="btn-load" id="btnLoad">청사진 불러오기</button>
 
+      <details class="detail-section" id="renderOptions" open>
+        <summary>렌더링 옵션</summary>
+        <div class="option-list">
+          <label class="option-row">
+            <span class="option-label">엔티티 이름 표시</span>
+            <input type="checkbox" id="optShowLabel" class="toggle-input" checked>
+          </label>
+          <label class="option-row">
+            <span class="option-label">전선 표시</span>
+            <input type="checkbox" id="optShowWires" class="toggle-input" checked>
+          </label>
+          <label class="option-row">
+            <span class="option-label">중심점 표시</span>
+            <input type="checkbox" id="optShowOrigin" class="toggle-input" checked>
+          </label>
+        </div>
+      </details>
+
       <div id="bpInfo" hidden>
         <div id="infoContent" class="info-section"></div>
 

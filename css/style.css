@@ -298,6 +298,49 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .j-bool { color: #c678dd; }
 .j-null { color: var(--text-muted); }
 
+/* ── Rendering options ───────────────────────────────────────────────── */
+.option-list { padding-bottom: 8px; }
+
+.option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text);
+  user-select: none;
+}
+
+.option-label { flex: 1; }
+
+/* Toggle switch */
+.toggle-input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 32px;
+  height: 18px;
+  background: var(--border);
+  border-radius: 9px;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.toggle-input::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s, background 0.2s;
+}
+.toggle-input:checked { background: var(--accent2); }
+.toggle-input:checked::after { left: 17px; background: #1a0f00; }
+
 /* ── Error box ───────────────────────────────────────────────────────── */
 .error-box {
   background: rgba(233, 69, 96, 0.1);
